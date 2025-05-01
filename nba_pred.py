@@ -14,12 +14,8 @@ df = df.dropna()
 X = df[['PTS', 'AST', 'TOV', 'TRB', 'STL', 'BLK', '2P%', '3P%', 'FT%', 'PER', 'WS', 'BPM', 'Age']]
 y = df['Salary']
 
-#normalize features
-scaler = StandardScaler()
-X_scaled = scaler.fit_transform(X)
-
 #split data into training and testing sets (80-20 split)
-X_train, X_test, y_train, y_test = train_test_split(X_scaled, y, test_size=0.2, random_state=42)
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
 
 #initialize Random Forest Regressor
 rf_model = RandomForestRegressor(n_estimators=100, random_state=42)
